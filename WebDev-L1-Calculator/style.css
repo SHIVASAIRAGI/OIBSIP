@@ -1,0 +1,137 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #101827, #202c43);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 370px;
+    padding: 25px;
+    border-radius: 25px;
+    background: #182438;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    color: #d7e2f2;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.status {
+    color: #4ade80;
+}
+
+.display {
+    background: #101b2d;
+    border-radius: 15px;
+    padding: 22px 15px;
+    min-height: 115px;
+    margin-bottom: 22px;
+    text-align: right;
+    overflow: hidden;
+}
+
+#expression {
+    color: #9caec7;
+    font-size: 15px;
+    min-height: 25px;
+    overflow-wrap: anywhere;
+}
+
+#result {
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 8px;
+    overflow-wrap: anywhere;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+button {
+    height: 62px;
+    border: none;
+    border-radius: 14px;
+    background: #263750;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #3b506e;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.utility {
+    background: #39465a;
+    color: #fbbf24;
+}
+
+.operator {
+    background: #31577d;
+    color: #93c5fd;
+}
+
+.equals {
+    background: #f59e0b;
+    color: #172033;
+    grid-row: span 2;
+    height: 136px;
+    font-weight: bold;
+}
+
+.equals:hover {
+    background: #fbbf24;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.footer {
+    text-align: center;
+    color: #8293aa;
+    font-size: 11px;
+    margin-top: 22px;
+}
+
+@media (max-width: 400px) {
+    .calculator {
+        padding: 18px;
+    }
+
+    button {
+        height: 55px;
+    }
+
+    .equals {
+        height: 122px;
+    }
+}
