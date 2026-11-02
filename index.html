@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oasis Infobyte Web Development Internship Projects by Shivasai Ragi.">
+  <title>OIBSIP | Web Development Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #080d19;
+      color: #f4f7ff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid #1d293d;
+      background: rgba(8, 13, 25, .95);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #63e6be;
+    }
+
+    .nav-link {
+      color: #aab6ca;
+      font-size: 14px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 95px 0 75px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #173b4c 0%, transparent 60%);
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #286b60;
+      background: #102a2b;
+      color: #78f0cc;
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 65px);
+      line-height: 1.12;
+      letter-spacing: -2.5px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .hero h1 span {
+      color: #63e6be;
+    }
+
+    .hero p {
+      color: #aab6ca;
+      max-width: 650px;
+      margin: 22px auto 30px;
+      font-size: 16px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #63e6be;
+      color: #071713;
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #8af5d5;
+    }
+
+    .section {
+      padding: 55px 0 80px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .section-heading small {
+      color: #63e6be;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(28px, 4vw, 38px);
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #141f32, #0e1727);
+      border: 1px solid #26344a;
+      border-radius: 17px;
+      padding: 27px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #63e6be;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .number {
+      font-size: 13px;
+      color: #63e6be;
+      font-weight: 700;
+    }
+
+    .status {
+      font-size: 11px;
+      color: #75e7b6;
+      background: #15352e;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+
+    .project-icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #a5b2c6;
+      font-size: 14px;
+      min-height: 67px;
+    }
+
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .tech span {
+      font-size: 11px;
+      color: #c5d3e8;
+      background: #202d42;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .demo {
+      display: inline-block;
+      margin-top: 5px;
+      color: #63e6be;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .demo:hover {
+      color: white;
+    }
+
+    .about {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+      padding: 35px 20px;
+      background: #111b2c;
+      border: 1px solid #26344a;
+      border-radius: 17px;
+    }
+
+    .about h2 {
+      margin-bottom: 12px;
+    }
+
+    .about p {
+      color: #a5b2c6;
+      font-size: 14px;
+    }
+
+    footer {
+      border-top: 1px solid #1d293d;
+      padding: 25px 0;
+      text-align: center;
+      color: #8391a7;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 70px 0 55px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .card p {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">OIB<span>SIP.</span></a>
+        <a href="#projects" class="nav-link">Explore Projects ↓</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="tag">WEB DEVELOPMENT INTERNSHIP</span>
+
+        <h1>
+          Turning Ideas Into
+          <span>Digital Experiences.</span>
+        </h1>
+
+        <p>
+          Welcome to my Oasis Infobyte internship portfolio.
+          Explore my web development projects, practical skills,
+          and creative experiments built using modern web technologies.
+        </p>
+
+        <a href="#projects" class="button">Explore My Projects →</a>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-heading">
+        <small>My Work</small>
+        <h2>Featured Projects</h2>
+        <p>Four projects developed during my web development journey.</p>
+      </div>
+
+      <div class="projects">
+
+        <article class="card">
+          <div class="card-top">
+            <span class="number">PROJECT 01</span>
+            <span class="status">Live Demo</span>
+          </div>
+          <div class="project-icon">🧮</div>
+          <h3>Calculator</h3>
+          <p>
+            A modern calculator with a clean interface, keyboard support,
+            and essential arithmetic operations.
+          </p>
+          <div class="tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a class="demo" href="./WebDev-L2-Calculator/" target="_blank">
+            View Live Project ↗
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="number">PROJECT 02</span>
+            <span class="status">Live Demo</span>
+          </div>
+          <div class="project-icon">🏏</div>
+          <h3>Virat Kohli Tribute Page</h3>
+          <p>
+            A responsive tribute website celebrating the career,
+            achievements, milestones, and memorable moments of Virat Kohli.
+          </p>
+          <div class="tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a class="demo" href="./WebDev-L2-TributePage/" target="_blank">
+            View Live Project ↗
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="number">PROJECT 03</span>
+            <span class="status">Live Demo</span>
+          </div>
+          <div class="project-icon">📝</div>
+          <h3>DayFlow – To-Do App</h3>
+          <p>
+            A personal task management application with task tracking,
+            priorities, due dates, reminders, and progress monitoring.
+          </p>
+          <div class="tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span>
+          </div>
+          <a class="demo" href="./WebDev-L2-ToDoWebApp/" target="_blank">
+            View Live Project ↗
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="card-top">
+            <span class="number">PROJECT 04</span>
+            <span class="status">Live Demo</span>
+          </div>
+          <div class="project-icon">🔐</div>
+          <h3>Login Authentication</h3>
+          <p>
+            A login and registration interface demonstrating account
+            creation, password validation, and session handling.
+          </p>
+          <div class="tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a class="demo" href="./WebDev-L2-LoginAuthentication/" target="_blank">
+            View Live Project ↗
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="about">
+        <h2>About This Portfolio</h2>
+        <p>
+          I am a final-year B.Tech Information Technology student
+          passionate about technology and web development.
+          This portfolio showcases the practical projects I developed
+          as part of my Oasis Infobyte Web Development Internship.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Designed & Developed by Shivasai Ragi</p>
+      <p>Oasis Infobyte Web Development Internship • 2026</p>
+      <p>© 2026 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
