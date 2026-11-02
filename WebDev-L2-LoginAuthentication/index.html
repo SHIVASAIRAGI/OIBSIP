@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DayFlow | Personal Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Authentication -->
+  <main id="authScreen" class="auth-shell">
+    <section class="auth-brand">
+      <div class="brand"><span class="brand-mark">D</span> DayFlow</div>
+      <div>
+        <span class="eyebrow">PLAN YOUR DAY. OWN YOUR TIME.</span>
+        <h1>Make every day a little more productive.</h1>
+        <p>Organize your tasks, manage your time and keep moving towards your goals.</p>
+      </div>
+      <small>© 2026 DayFlow</small>
+    </section>
+
+    <section class="auth-panel">
+      <form id="loginForm" class="auth-form">
+        <span class="eyebrow">WELCOME BACK</span>
+        <h2>Sign in to DayFlow</h2>
+        <p class="muted">Continue where you left off.</p>
+
+        <label for="loginId">Username or email</label>
+        <input id="loginId" type="text" placeholder="Enter username or email" required autocomplete="username">
+
+        <label for="loginPassword">Password</label>
+        <div class="password-field">
+          <input id="loginPassword" type="password" placeholder="Enter password" required autocomplete="current-password">
+          <button type="button" class="show-password" data-target="loginPassword">Show</button>
+        </div>
+
+        <p id="loginMessage" class="message" aria-live="polite"></p>
+        <button class="primary-btn" type="submit">Login <span>→</span></button>
+
+        <p class="switch-line">New to DayFlow?
+          <button type="button" class="link-btn" id="goRegister">Create account</button>
+        </p>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden">
+        <span class="eyebrow">GET STARTED</span>
+        <h2>Create your account</h2>
+        <p class="muted">Your productive journey starts here.</p>
+
+        <label for="regUsername">Username</label>
+        <input id="regUsername" type="text" placeholder="Choose a username" required autocomplete="username">
+
+        <label for="regEmail">Email address</label>
+        <input id="regEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+
+        <label for="regPassword">Password</label>
+        <div class="password-field">
+          <input id="regPassword" type="password" placeholder="Minimum 8 characters" required autocomplete="new-password">
+          <button type="button" class="show-password" data-target="regPassword">Show</button>
+        </div>
+        <small class="hint">At least 8 characters and one number.</small>
+
+        <p id="registerMessage" class="message" aria-live="polite"></p>
+        <button class="primary-btn" type="submit">Create account <span>→</span></button>
+
+        <p class="switch-line">Already registered?
+          <button type="button" class="link-btn" id="goLogin">Login</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <!-- DayFlow application -->
+  <main id="appScreen" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">D</span> DayFlow</div>
+
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active" id="allNav">▦ <span>All tasks</span></button>
+      <button class="nav-item" id="activeNav">◷ <span>Active</span></button>
+      <button class="nav-item" id="completedNav">✓ <span>Completed</span></button>
+
+      <div class="sidebar-bottom">
+        <div class="user-mini">
+          <div class="avatar" id="userAvatar">U</div>
+          <div class="user-info">
+            <strong id="userName">User</strong>
+            <small id="userEmail">user@email.com</small>
+          </div>
+        </div>
+        <button id="logoutBtn" class="logout-btn">↗ Sign out</button>
+      </div>
+    </aside>
+
+    <section class="main-content">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">YOUR PERSONAL WORKSPACE</span>
+          <h1 id="welcomeTitle">Welcome back!</h1>
+          <p class="muted" id="todayDate"></p>
+        </div>
+        <button id="notificationBtn" class="notification-btn">Enable notifications</button>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span>Total tasks</span>
+          <strong id="totalCount">0</strong>
+          <small>All your tasks</small>
+        </article>
+        <article class="stat-card">
+          <span>In progress</span>
+          <strong id="activeCount">0</strong>
+          <small>Tasks to complete</small>
+        </article>
+        <article class="stat-card">
+          <span>Completed</span>
+          <strong id="completedCount">0</strong>
+          <small>Tasks finished</small>
+        </article>
+        <article class="stat-card progress-card">
+          <span>Daily progress</span>
+          <strong id="progressValue">0%</strong>
+          <div class="progress-track"><div id="progressBar"></div></div>
+        </article>
+      </section>
+
+      <section class="task-layout">
+        <div class="task-main">
+          <div class="section-heading">
+            <div>
+              <h2>My tasks</h2>
+              <p class="muted">Keep your day organized.</p>
+            </div>
+            <select id="sortSelect" aria-label="Sort tasks">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="priority">Priority</option>
+              <option value="due">Due date</option>
+            </select>
+          </div>
+
+          <form id="taskForm" class="task-form">
+            <input type="hidden" id="editId">
+
+            <div class="field">
+              <label for="taskTitle">Task title</label>
+              <input id="taskTitle" type="text" placeholder="What do you need to do?" maxlength="100" required>
+            </div>
+
+            <div class="field">
+              <label for="taskDescription">Description</label>
+              <textarea id="taskDescription" placeholder="Add some details..." rows="2"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="taskPriority">Priority</label>
+                <select id="taskPriority">
+                  <option value="Low">Low</option>
+                  <option value="Medium" selected>Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="taskDate">Due date</label>
+                <input id="taskDate" type="date">
+              </div>
+              <div class="field">
+                <label for="taskTime">Due time</label>
+                <input id="taskTime" type="time">
+              </div>
+            </div>
+
+            <label class="reminder-option">
+              <input id="taskReminder" type="checkbox">
+              <span>Remind me with a notification and alarm</span>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-btn" id="saveTaskBtn">+ Add task</button>
+              <button type="button" class="cancel-btn hidden" id="cancelEditBtn">Cancel edit</button>
+            </div>
+          </form>
+
+          <div class="filter-row">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+          </div>
+
+          <div id="taskList" class="task-list"></div>
+          <div id="emptyState" class="empty-state">
+            <div class="empty-icon">✦</div>
+            <h3>Your day starts here</h3>
+            <p>Add your first task and make progress.</p>
+          </div>
+        </div>
+
+        <aside class="right-panel">
+          <div class="tip-card">
+            <span class="tip-icon">✦</span>
+            <h3>A little reminder</h3>
+            <p>Small steps every day lead to big achievements. Focus on one task at a time.</p>
+          </div>
+
+          <div class="summary-card">
+            <h3>Your focus</h3>
+            <p class="muted">Completed tasks</p>
+            <strong id="sideCompleted">0</strong>
+            <div class="progress-track"><div id="sideProgress"></div></div>
+            <small id="sideSummary">Keep going!</small>
+          </div>
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <!-- Alarm -->
+  <div id="alarmModal" class="alarm-modal hidden">
+    <div class="alarm-box">
+      <div class="alarm-icon">⏰</div>
+      <span class="eyebrow">DAYFLOW REMINDER</span>
+      <h2>Time for your task!</h2>
+      <p id="alarmTaskName"></p>
+      <button id="stopAlarmBtn" class="primary-btn">Stop alarm</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c111c">
+    <title>Nova - Smart Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="shell">
+
+        <header class="top">
+            <div class="brand">
+                <span class="brand-mark">N</span>
+                <div>
+                    <strong>NOVA</strong>
+                    <small>SMART CALCULATOR</small>
+                </div>
+            </div>
+            <span class="status">● READY</span>
+        </header>
+
+        <section class="calculator">
+
+            <div class="display">
+                <p class="eyebrow">CURRENT EXPRESSION</p>
+                <div id="expression" class="expression"></div>
+                <div id="result" class="result">0</div>
+            </div>
+
+            <div class="buttons">
+                <button class="key utility" data-action="clear">AC</button>
+                <button class="key utility" data-action="delete">DEL</button>
+                <button class="key utility" data-value="%">%</button>
+                <button class="key operator" data-value="/">÷</button>
+
+                <button class="key" data-value="7">7</button>
+                <button class="key" data-value="8">8</button>
+                <button class="key" data-value="9">9</button>
+                <button class="key operator" data-value="*">×</button>
+
+                <button class="key" data-value="4">4</button>
+                <button class="key" data-value="5">5</button>
+                <button class="key" data-value="6">6</button>
+                <button class="key operator" data-value="-">−</button>
+
+                <button class="key" data-value="1">1</button>
+                <button class="key" data-value="2">2</button>
+                <button class="key" data-value="3">3</button>
+                <button class="key operator" data-value="+">+</button>
+
+                <button class="key zero" data-value="0">0</button>
+                <button class="key" data-value=".">.</button>
+                <button class="key equals" data-action="calculate">=</button>
+            </div>
+
+            <p class="hint">
+                TIP · Enter to calculate · Esc to clear
+            </p>
+
+        </section>
+
+        <footer>Designed for everyday clarity <span>✦</span></footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
